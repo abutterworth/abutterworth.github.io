@@ -1,0 +1,43 @@
+html { 
+  background: linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) ), url(image.png) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: costytver;
+  background-size: cover;
+}
+
+html.doge{
+	background: linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) ), url(doge.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+}
+
+body {
+	font-family: "Lato";
+	font-style: normal;
+	text-align: center;
+	color: #fff;
+}
+
+h1{
+	font-weight: 100;
+	font-size: 3em;
+}
+
+a{
+	color: rgba(255,255,255,0.6);
+	text-decoration: none;
+	text-transform: uppercase;
+}
+
+a:hover{
+	color: rgba(255,255,255,1);
+}
+
+
+.block {
+	position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%) }
+}
