@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Index</title> 
+  <script type="module" src="site-elements.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+</head>
+<body>
+  <site-shell active="react-example.html">
+    <main slot="main">
+      This is the main
+      <div id="react-container"></div>
+      <script type="text/jsx">
+        function MyReactApp() {
+          return (
+            <div>
+              <h1>Hello React World</h1>
+            </div>
+          );
+        }
+
+        ReactDOM.render(<MyReactApp />, document.getElementById('react-container'));
+      </script>
+
+    </main>
+  </site-shell>
+</body>
+</html>

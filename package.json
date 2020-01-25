@@ -1,0 +1,11 @@
+{
+  "name": "easy-web",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx http-server"
+  },
+  "author": "",
+  "license": "ISC"
+}
