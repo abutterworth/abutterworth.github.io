@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Back Into Processing</title>
+    <meta
+      name="description"
+      content="Oh Processing, I'm so sorry I forgot about you for so long."
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="../style.css" />
+    <script type="module" src="../elements/SiteShellElement.js"></script>
+    <style>
+      canvas {
+        background: black;
+      }
+    </style>
+   
+    <script type="text/javascript" src="./common/jquery.min.js"></script>
+   
+    <script
+      type="text/javascript"
+      src="./common/processing-1.4.1.js"
+    ></script>
+   
+  </head>
+  <body>
+    <site-shell>
+      <main slot="main">
+    <h1>Back Into Processing</h1>
+    <p>Click and drag to see this doodad.</p>
+    <div class="container">
+      <style type="text/css">
+        canvas {
+          /*background:#fff;*/
+          /*margin:0 auto;*/
+          border: solid 1px #333;
+        }
+        body {
+          /*background:#fff;*/
+        }
+      </style>
+
+      <div class="row">
+        <div class="span8 offset2">
+          <canvas
+            data-processing-sources="stuff.pde"
+            tabindex="0"
+            id="__processing0"
+            width="770"
+            height="565"
+            style="image-rendering: -webkit-optimize-contrast !important"
+          ></canvas>
+        </div>
+      </div>
+
+    </div>
+    <!-- /container -->
+    </main>
+    </site-shell>
+  </body>
+</html>

@@ -1,14 +1,79 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Index</title> 
-  <script type="module" src="site-elements.js"></script>
+  <title>Still having fun</title> 
+  <meta name="description" content="Adam Butterworth is still having fun.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <script type="module" src="./elements/SiteShellElement.js"></script>
+  <style>
+    .contact-sheet {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .contact-sheet a {
+      width: calc(25% - 1rem);
+      min-width: 20rem;
+    }
+    .contact-sheet img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 16/9;
+      object-fit: cover;
+      margin-bottom: .5rem;
+    }
+  </style>
 </head>
 <body>
-  <site-shell active="index.html">
+  <site-shell>
     <main slot="main">
-      Fooling
+      <h1>Still having fun // Index</h1>
+      <h2>2012-ish</h2>
+      <div class="contact-sheet">
+        <a href="2012/gaussian-circles.html">
+          <img src="2012/gaussian-circles.png" alt="" />
+          Gaussian Circles
+        </a>
+        <a href="2012/budding-circles.html">
+          <img src="2012/budding-circles.png" alt="" />
+          Budding Circles
+        </a>
+        <a href="2012/spines.html">
+          <img src="2012/spines.png" alt="" />
+          Back Into Processing
+        </a>
+        <a href="2012/1d-animated-terrain.html">
+          <img src="2012/1d-animated-terrain.png" alt="" />
+          1D Animated Terrain Generator
+        </a>
+        <a href="2012/1d-terrain.html">
+          <img src="2012/1d-terrain.png" alt="" />
+          1D Terrain Generator
+        </a>
+        <a href="2012/fake-3d-gravity.html">
+          <img src="2012/fake-3d-gravity.png" alt="" />
+          Fake 3D Gravity
+        </a>
+        <a href="2012/planets-and-fun.html">
+          <img src="2012/planets-and-fun.png" alt="" />
+          Planets & Fun
+        </a>
+        <a href="2012/planets.html">
+          <img src="2012/planets.png" alt="" />
+          Planets
+        </a>
+        <a href="2012/gravity-play-2.html">
+          <img src="2012/gravity-play-2.png" alt="" />
+          Gravity Play 2
+        </a>
+        <a href="2012/gravity-play.html">
+          <img src="2012/gravity-play.png" alt="" />
+          Gravity Play
+        </a>
+      </div>
     </main>
+    
   </site-shell>
 </body>
 </html>

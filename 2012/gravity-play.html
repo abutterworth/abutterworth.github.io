@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Gravity Play</title>
+    <meta
+      name="description"
+      content="Playing around with gravity and 2D vector math. The dots are attracted to the mouse."
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="../style.css" />
+    <script type="module" src="../elements/SiteShellElement.js"></script>
+    <style>
+      canvas {
+        background: #020202;
+      }
+    </style>
+
+    <script type="text/javascript" src="./common/jquery.min.js"></script>
+  </head>
+  <body>
+    <site-shell>
+      <main slot="main">
+        <h1>Gravity Play</h1>
+        <p>Click to start and stop</p>
+
+        <div class="row">
+          <div class="span12">
+            <div class="project-wrap">
+              <canvas id="canvas1" width="799" height="565"></canvas>
+            </div>
+          </div>
+
+          <script type="text/javascript">
+            var ctx
+            var displayList
+            var heart
+            var HEIGHT = 400
+            var WIDTH = 400
+
+            $(function () {
+              $('#canvas1').mousemove(function (e) {
+                //	console.log(e);
+                mouseCoords.x = e.offsetX
+                mouseCoords.y = e.offsetY
+              })
+              HEIGHT = $('#canvas1').height()
+              WIDTH = $('#canvas1').width()
+              var canvas = document.getElementById('canvas1')
+              ctx = canvas.getContext('2d')
+
+              /*	ctx.fillStyle = "rgb(200,0,0)";  
+                  ctx.fillRect (10, 10, 55, 50);  
+            
+                  ctx.fillStyle = "rgba(0, 0, 200, 0.5)";  
+                  ctx.fillRect (30, 30, 55, 50); 
+            */
+              displayList = new DisplayList(ctx)
+
+              heart = new Heart()
+              //	planet = new GravityObject(1, 300, 300);
+              //	moon = new GravityObject(1, 300, 200, 0, 4, 0, 0);
+              //	moon.addActingObject(planet);
+
+              //displayList.addObject(planet);
+              //displayList.addObject(moon);
+              displayList.addObject(heart)
+              //	displayList.render();
+              //dof = new DisplayObject();
+              //heart.render(ctx);
+
+              // Radians to coords
+              console.log(Math.cos(3.14), Math.sin(3.14))
+
+              //
+            })
+
+            function Vector(x, y, z) {
+              this.x = x || 0
+              this.y = y || 0
+              this.z = z || 0
+              this.magnitude = 0
+            }
+            Vector.prototype.normalize = function () {
+              this.magnitude = Math.sqrt(
+                Math.pow(this.x, 2) +
+                  Math.pow(this.y, 2) +
+                  Math.pow(this.z, 2)
+              )
+
+              if (this.magnitude == 0) return
+
+              this.x /= this.magnitude
+              this.y /= this.magnitude
+              this.z /= this.magnitude
+            }
+            Vector.prototype.setMagnitude = function (newMag) {
+              this.normalize()
+
+              this.magnitude = newMag
+
+              this.x *= this.magnitude
+              this.y *= this.magnitude
+              this.z *= this.magnitude
+            }
+            Vector.prototype.setCoordinates = function (newX, newY, newZ) {
+              this.x = newX || 0
+              this.y = newY || 0
+              this.z = newZ || 0
+
+              this.magnitude = Math.sqrt(
+                Math.pow(this.x, 2) +
+                  Math.pow(this.y, 2) +
+                  Math.pow(this.z, 2)
+              )
+            }
+            Vector.prototype.getMagnitude = function () {
+              return this.magnitude
+            }
+            Vector.prototype.vectorTo = function (absV) {
+              return new Vector(
+                absV.x - this.x,
+                absV.y - this.y,
+                absV.z - this.z
+              )
+            }
+            Vector.prototype.add = function (vectorToAdd, coeff) {
+              coeff = coeff || 1
+              this.x += vectorToAdd.x * coeff
+              this.y += vectorToAdd.y * coeff
+              this.z += vectorToAdd.z * coeff
+
+              this.magnitude = Math.sqrt(
+                Math.pow(this.x, 2) +
+                  Math.pow(this.y, 2) +
+                  Math.pow(this.z, 2)
+              )
+            }
+
+            var GRAVITY = 1
+            function GravityObject(mass, x, y, z, vX, vY, vZ) {
+              this.position = new Vector(x, y, z)
+              this.mass = mass || 0
+              this.velocity = new Vector(vX, vY, vZ)
+
+              this.actors = new Array()
+            }
+            GravityObject.prototype.applyForces = function () {
+              for (i = 0; i < this.actors.length; i++) {
+                actingVector = this.position.vectorTo(this.actors[i].position)
+                actingVector.setMagnitude(1)
+                this.velocity.add(actingVector)
+              }
+
+              this.position.add(this.velocity)
+            }
+            GravityObject.prototype.addActingObject = function (gObj) {
+              this.actors.push(gObj)
+            }
+            GravityObject.prototype.render = function (ctx) {
+              this.applyForces()
+
+              ctx.fillStyle = 'rgba(0, 200, 200, .7)'
+              ctx.beginPath()
+              ctx.arc(
+                this.position.x,
+                this.position.y,
+                1,
+                0,
+                Math.PI * 2,
+                true
+              )
+              ctx.closePath()
+              ctx.fill()
+            }
+
+            function draw() {
+              clearTimeout(drawTimeout)
+              displayList.render()
+
+              drawTimeout = setTimeout(draw, 20)
+            }
+            var drawTimeout
+            var isDrawing = false
+            var mouse = new Vector(0, 0, 0)
+            /*$(document).mousedown(function() {
+        //			heart.x = mouseCoords.x;
+        //			heart.y = mouseCoords.y;
+              
+              console.log('Draw!');
+              isDrawing=true;
+              draw();
+            });
+            $(document).mouseup(function() {
+              console.log('Stop!');
+              isDrawing = false;
+              clearTimeout(drawTimeout);
+            });*/
+
+            $(document).click(function () {
+              if (isDrawing) {
+                console.log('Stop!')
+                isDrawing = false
+                clearTimeout(drawTimeout)
+              } else {
+                console.log('Draw!')
+                isDrawing = true
+                draw()
+              }
+            })
+
+            function DisplayObject() {
+              //console.log('Display Object Created');
+            }
+            DisplayObject.prototype.ctx = ctx
+            DisplayObject.prototype.render = function () {}
+
+            /*
+              Save previous dots and draw transparent shapes make an interesting ribbon
+              planets and gravity physics
+            */
+
+            function DisplayList(ctx) {
+              this.ctx = ctx
+
+              this.displayObjects = new Array()
+            }
+            DisplayList.prototype.addContext = function (ctx) {
+              this.ctx = ctx
+            }
+            DisplayList.prototype.addObject = function (displayObject) {
+              this.displayObjects.push(displayObject)
+            }
+            DisplayList.prototype.render = function () {
+              for (
+                i = 0, count = this.displayObjects.length;
+                i < count;
+                i++
+              ) {
+                this.displayObjects[i].render(this.ctx)
+              }
+            }
+
+            function Heart() {
+              this.radius = 1
+              this.x = 200
+              this.y = 200
+              this.direction = 0
+              this.velocity = 1
+              this.acceleration = 0.5
+
+              this.motionVector = new Vector()
+            }
+
+            Heart.prototype.render = function (ctx) {
+              this.beat()
+              b = Math.floor(mouse.magnitude)
+
+              ctx.fillStyle = 'rgba(0, 200, ' + b + ', .7)'
+              ctx.beginPath()
+              ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, true)
+              ctx.closePath()
+              ctx.fill()
+            }
+            Heart.prototype.doAcceleration = function () {}
+            Heart.prototype.doVelocity = function () {}
+            Heart.prototype.beat = function () {
+              mouse.setCoordinates(
+                mouseCoords.x - heart.x,
+                mouseCoords.y - heart.y
+              )
+              mouse.normalize()
+              heart.motionVector.add(mouse)
+
+              //this.motionVector.setCoordinates(mouseCoords.x - this.x, mouseCoords.y - this.y);
+              //	this.velocity = this.motionVector.getMagnitude() * .1;
+
+              //this.motionVector.normalize();
+              //	this.motionVector.setMagnitude(this.velocity);
+
+              this.x += this.motionVector.x
+              this.y += this.motionVector.y
+            }
+
+            mouseCoords = { x: 0, y: 0 }
+          </script>
+        </div>
+      </main>
+    </site-shell>
+  </body>
+</html>

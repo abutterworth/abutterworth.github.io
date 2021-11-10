@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=windows-1252" />
+    <script type="module" src="../elements/SiteShellElement.js"></script>
+    <link rel="stylesheet" type="text/css" href="../style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta name="description" content="Jumping into fractals with a super simple 1-Dimensional terrain generator." />
+    <title>1D Terrain Generator</title>
+    <script
+      type="text/javascript"
+      src="./common/jquery.min.js"
+    ></script>
+  </head>
+  <body>
+    <site-shell>
+      <main slot="main">
+				<h1>1D Terrain Generator</h1>
+        <div class="container">
+          <style type="text/css">
+            canvas {
+              background: #fff;
+
+              border: solid 1px #aaa;
+            }
+            body {
+              background: #fff;
+            }
+          </style>
+
+          <script type="text/javascript">
+            $(function () {
+              initCanvas()
+              generateTerrain()
+
+              jQuery('.regenerate').click(function () {
+                generateTerrain()
+              })
+
+              jQuery('.clear').click(function () {
+                ctx.clearRect(0, 0, WIDTH, HEIGHT)
+              })
+            })
+
+            var HEIGHT
+            var WIDTH
+            var canvas
+            var ctx
+
+            function initCanvas() {
+              HEIGHT = $('#canvas1').height()
+              WIDTH = $('#canvas1').width()
+              canvas = document.getElementById('canvas1')
+              ctx = canvas.getContext('2d')
+            }
+            var terrain
+
+            function generateTerrain() {
+              var variation = jQuery('input[name=variation]').val()
+
+              var resolution = jQuery('select[name=resolution]').val()
+
+              terrain = new Array(
+                { x: 0, y: 0 },
+                {
+                  x: WIDTH / 2,
+                  y: Math.random() * variation - variation * 0.5,
+                },
+                { x: WIDTH, y: 0 }
+              )
+
+              // The fractal magic. We aren't going to use recursion this time.
+
+              for (var i = 0; i < resolution; i++) {
+                var newTerrain = new Array()
+
+                for (var j = 1; j < terrain.length; j++) {
+                  newPoint = {
+                    x: (terrain[j].x + terrain[j - 1].x) / 2,
+                    /*y: ( terrain[j].y + terrain[j-1].y ) / 2 + (Math.random()*(terrain[j].y - terrain[j-1].y)- ((terrain[j].y - terrain[j-1].y)*.5))*roughness,*/
+                    y:
+                      Math.random() * variation -
+                      variation * 0.5 +
+                      (terrain[j].y + terrain[j - 1].y) / 2,
+                  }
+                  newTerrain.push(terrain[j - 1])
+                  newTerrain.push(newPoint)
+                }
+                variation *= 0.5
+
+                newTerrain.push(terrain[terrain.length - 1])
+                terrain = newTerrain
+              }
+
+              ctx.beginPath()
+
+              ctx.moveTo(terrain[0].x, -terrain[0].y + 300)
+              for (var i = 1; i < terrain.length; i++) {
+                ctx.lineTo(terrain[i].x, -terrain[i].y + 300)
+              }
+
+              ctx.stroke()
+            }
+          </script>
+
+          <div class="row">
+            <div class="span8 offset2">
+              <canvas id="canvas1" width="770" height="565"></canvas>
+            </div>
+          </div>
+          <div class="row">
+            <div class="span8 offset2 ui">
+              <div class="well">
+                <label>Variation</label>
+                <input
+                  type="text"
+                  name="variation"
+                  class="input-small"
+                  value="300"
+                />
+                <label>Resolution</label>
+                <select name="resolution">
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option selected="selected" value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                  <option value="10">10</option></select
+                ><br />
+
+                <button class="btn btn-primary regenerate">Regenerate!</button>
+                <button class="btn clear">Clear Canvas</button>
+
+                <p class="help-block">
+                  <br />This is an implementation of the 1d terrain fractal
+                  discussed here:
+                  <a href="http://www.gameprogrammer.com/fractal.html"
+                    >http://www.gameprogrammer.com/fractal.html</a
+                  >
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </site-shell>
+  </body>
+</html>
