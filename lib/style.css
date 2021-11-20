@@ -1,0 +1,32 @@
+:root {
+  --site-padding: 1rem;
+  --site-max-width: 72rem;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  line-height: 1.5;
+}
+
+img {
+  display: block;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+main, .centered {
+  padding: var(--site-padding, 1rem);
+  width: 100%;
+  max-width: var(--site-max-width, 72rem);
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+main.flush {
+  padding: 0;
+  max-width: none;
+}

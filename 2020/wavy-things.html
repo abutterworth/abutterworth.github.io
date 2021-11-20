@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Index</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="../lib/style.css" />
+    <script type="module" src="../lib/SiteShellElement.js"></script>
+    <script src="./common/p5.js"></script>
+    <style>
+      canvas {
+        background: black;
+        margin: 0;
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <site-shell>
+      <main slot="main" class="flush">
+        <div class="centered">
+          <h1>Wavy Things</h1>
+        </div>
+        <div id="sketch"></div>
+
+        <script type="text/javascript">
+          const BasicSketch = (p, centerHue, hueVariance, amplitude = 40) => {
+            let x = 100
+            let y = 100
+            // const centerHue = p.randomGaussian(160, 80);
+
+            const makeLine = () => {
+              p.strokeWeight(p.randomGaussian(1, 1))
+              p.blendMode(p.MULTIPLY)
+              const hue =
+                (Math.round(p.randomGaussian(centerHue, hueVariance)) + 360) %
+                360
+              let c = p.color(`hsla(${hue}, 100%, 50%, 0.4)`)
+
+              p.stroke(c)
+              p.noFill()
+              // p.fill(c);
+              p.beginShape()
+
+              const points = [{ x: -100, y: 150 }]
+              let x = -100
+              for (
+                x;
+                x - 200 < document.documentElement.clientWidth;
+                x += 100
+              ) {
+                points.push({
+                  x,
+                  y: p.randomGaussian(150, amplitude),
+                })
+              }
+              points.push({ x, y: 150 })
+              p.vertex(0, 300)
+              points.forEach(({ x, y }, index) => {
+                p.curveVertex(x, y)
+              })
+              p.vertex(x, 300)
+              p.endShape()
+            }
+
+            p.setup = () => {
+              const canvas = p.createCanvas(
+                document.documentElement.clientWidth,
+                300
+              )
+              canvas.parent('sketch')
+              // p.background(255, 204, 0);
+              // p.background(0);
+              // p.frameRate(10);
+              p.noLoop()
+            }
+
+            p.draw = () => {
+              p.clear()
+              for (let i = 0; i < 10; i++) {
+                makeLine(centerHue)
+              }
+            }
+
+            p.windowResized = () => {
+              p.resizeCanvas(document.documentElement.clientWidth, 300)
+            }
+          }
+
+          new p5((p) => BasicSketch(p, 350, 35))
+          new p5((p) => BasicSketch(p, 50, 15))
+          new p5((p) => BasicSketch(p, 170, 25))
+          new p5((p) => BasicSketch(p, 350, 35))
+          new p5((p) => BasicSketch(p, 50, 15))
+        </script>
+      </main>
+    </site-shell>
+  </body>
+</html>

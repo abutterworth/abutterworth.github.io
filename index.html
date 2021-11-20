@@ -1,79 +1,136 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <title>Still having fun</title> 
-  <meta name="description" content="Adam Butterworth is still having fun.">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" type="text/css" href="style.css">
-  <script type="module" src="./elements/SiteShellElement.js"></script>
-  <style>
-    .contact-sheet {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-    }
-    .contact-sheet a {
-      width: calc(25% - 1rem);
-      min-width: 20rem;
-    }
-    .contact-sheet img {
-      display: block;
-      width: 100%;
-      aspect-ratio: 16/9;
-      object-fit: cover;
-      margin-bottom: .5rem;
-    }
-  </style>
-</head>
-<body>
-  <site-shell>
-    <main slot="main">
-      <h1>Still having fun // Index</h1>
-      <h2>2012-ish</h2>
-      <div class="contact-sheet">
-        <a href="2012/gaussian-circles.html">
-          <img src="2012/gaussian-circles.png" alt="" />
-          Gaussian Circles
-        </a>
-        <a href="2012/budding-circles.html">
-          <img src="2012/budding-circles.png" alt="" />
-          Budding Circles
-        </a>
-        <a href="2012/spines.html">
-          <img src="2012/spines.png" alt="" />
-          Back Into Processing
-        </a>
-        <a href="2012/1d-animated-terrain.html">
-          <img src="2012/1d-animated-terrain.png" alt="" />
-          1D Animated Terrain Generator
-        </a>
-        <a href="2012/1d-terrain.html">
-          <img src="2012/1d-terrain.png" alt="" />
-          1D Terrain Generator
-        </a>
-        <a href="2012/fake-3d-gravity.html">
-          <img src="2012/fake-3d-gravity.png" alt="" />
-          Fake 3D Gravity
-        </a>
-        <a href="2012/planets-and-fun.html">
-          <img src="2012/planets-and-fun.png" alt="" />
-          Planets & Fun
-        </a>
-        <a href="2012/planets.html">
-          <img src="2012/planets.png" alt="" />
-          Planets
-        </a>
-        <a href="2012/gravity-play-2.html">
-          <img src="2012/gravity-play-2.png" alt="" />
-          Gravity Play 2
-        </a>
-        <a href="2012/gravity-play.html">
-          <img src="2012/gravity-play.png" alt="" />
-          Gravity Play
-        </a>
-      </div>
-    </main>
-    
-  </site-shell>
-</body>
+  <head>
+    <title>Still having fun</title>
+    <meta name="description" content="Adam Butterworth is still having fun." />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="./lib/style.css" />
+
+    <script type="module" src="./lib/SiteShellElement.js"></script>
+    <style>
+      img {
+        width: 12rem;
+        max-width: 33vw;
+        aspect-ratio: 1.618/1;
+        object-fit: cover;
+        border-radius: 16px;
+      }
+      ul {
+        list-style: none;
+        padding: 0;
+      }
+      li {
+        margin-bottom: 1rem;
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+      }
+    </style>
+  </head>
+  <body>
+    <site-shell>
+      <main slot="main">
+        <h1>Still Having Fun</h1>
+        <p style="margin-bottom: 3rem;">Things made by Adam Butterworth, often for no reason.</p>
+        
+        <h2>2020</h2>
+        <ul>
+          <li>
+            <a href="2020/wavy-things.html">
+              <img src="2020/wavy-things.png" alt="" />
+            </a>
+            <a href="2020/wavy-things.html">
+              <h4>Wavy Things</h4>
+            </a>
+          </li>
+        </ul>
+
+        <h2>2012</h2>
+        <ul>
+          <li>
+            <a href="2012/gaussian-circles.html">
+              <img src="2012/gaussian-circles.png" alt="" />
+            </a>
+            <a href="2012/gaussian-circles.html">
+              <h4>Gaussian Circles</h4>
+            </a>
+          </li>
+          <li>
+            <a href="2012/budding-circles.html">
+              <img src="2012/budding-circles.png" alt="" />
+            </a>
+            <a href="2012/budding-circles.html">
+              <h4>Budding Circles</h4>
+            </a>
+          </li>
+          <li>
+            <a href="2012/spines.html">
+              <img src="2012/spines.png" alt="" />
+            </a>
+            <a href="2012/spines.html">
+              <h4>Back Into Processing</h4>
+            </a>
+          </li>
+          <li>
+            <a href="2012/1d-animated-terrain.html">
+              <img src="2012/1d-animated-terrain.png" alt="" />
+            </a>
+            <a href="2012/1d-animated-terrain.html">
+              <h4>1D Animated Terrain Generator</h4>
+            </a>
+          </li>
+          <li>
+            <a href="2012/1d-terrain.html">
+              <img src="2012/1d-terrain.png" alt="" />
+            </a>
+            <a href="2012/1d-terrain.html">
+              <h4>1D Terrain Generator</h4>
+            </a>
+          </li>
+          <li>
+            <a href="2012/fake-3d-gravity.html">
+              <img src="2012/fake-3d-gravity.png" alt="" />
+            </a>
+            <a href="2012/fake-3d-gravity.html">
+              <h4>Fake 3D Gravity</h4>
+            </a>
+          </li>
+          <li>
+            <a href="2012/planets-and-fun.html">
+              <img src="2012/planets-and-fun.png" alt="" />
+            </a>
+            <a href="2012/planets-and-fun.html">
+              <h4>Planets & Fun</h4>
+            </a>
+          </li>
+          <li>
+            <a href="2012/planets.html">
+              <img src="2012/planets.png" alt="" />
+            </a>
+            <a href="2012/planets.html">
+              <h4>Planets</h4>
+            </a>
+          </li>
+          <li>
+            <a href="2012/gravity-play-2.html">
+              <img src="2012/gravity-play-2.png" alt="" />
+            </a>
+            <a href="2012/gravity-play-2.html">
+              <h4>Gravity Play 2</h4>
+            </a>
+          </li>
+          <li>
+            <a href="2012/gravity-play.html">
+              <img src="2012/gravity-play.png" alt="" />
+            </a>
+            <a href="2012/gravity-play.html">
+              <h4>Gravity Play</h4>
+            </a>
+          </li>
+        </ul>
+        <h2>2009 - 2011</h2>
+        <p>See my tumblr blog from my time in Tokushima, Japan: <a href="https://adaminjapan.tumblr.com/">https://adaminjapan.tumblr.com/</a>. Feel free to ask me for the password.</p>
+      </main>
+    </site-shell>
+  </body>
 </html>

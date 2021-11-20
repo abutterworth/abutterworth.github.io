@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.html",
   "scripts": {
-    "start": "npx http-server"
+    "start": "python3 -m http.server 8080"
   },
   "author": "",
   "license": "ISC"
