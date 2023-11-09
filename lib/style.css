@@ -1,6 +1,6 @@
 :root {
   --site-padding: 1rem;
-  --site-max-width: 72rem;
+  --site-max-width: auto;
 }
 
 body {
@@ -9,6 +9,14 @@ body {
   font-family: sans-serif;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
+  font-size: 14px;
+  background: black;
+  color: white;
+}
+
+h1 {
+  font-size: 21px;
+  margin: 0 0 .25rem 0;
 }
 
 img {
@@ -27,7 +35,6 @@ main, .centered {
   padding: var(--site-padding, 1rem);
   width: 100%;
   max-width: var(--site-max-width, 72rem);
-  margin: 0 auto;
   box-sizing: border-box;
 }
 
