@@ -13,261 +13,100 @@
         aspect-ratio: 1.618/1;
         object-fit: cover;
         border-radius: 4px;
-        margin-bottom: 1rem;
+        border: solid 1px rgba(255,255,255,.1);
       }
       ul {
         list-style: none;
         padding: 0;
+        margin: 0;
+        display: flex;
+        flex-wrap: wrap;
       }
       li {
-        margin-bottom: 2.5rem;
+        margin: .25rem;
+        width: 20rem;
+        flex-grow: 1;
+
       }
       h4 {
         margin-top: 0;
         margin-bottom: 0.5em;
-      }
-      main {
-        align-self: flex-start;
-        max-width: 32rem;
       }
     </style>
   </head>
   <body>
     <site-shell>
       <main slot="main">
-        <h1>Still Having Fun</h1>
-        <p style="margin-bottom: 3rem">
-          Things made by Adam Butterworth, often for no reason.
-        </p>
-        <h2>2020</h2>
         <ul>
           <li>
-            <a href="http://audreykao.com/">
-              <img src="2020/audrey-kao.png" alt="" />
-            </a>
-            <a href="http://audreykao.com/">
-              <h4>Audrey Kao</h4>
-            </a>
-            <p>
-              Christine Wu and I made our friend Audrey a fun doodad homepage
-              while on vacation.
-            </p>
-          </li>
-          <li>
             <a href="2020/fish-scales.html">
-              <img src="2020/fish-scales.png" alt="" />
+              <img src="2020/fish-scales.png" alt="Fish" title="Fish" />
             </a>
-            <h4><a href="2020/fish-scales.html"> Fish </a></h4>
           </li>
           <li>
             <a href="2020/wavy-things.html">
-              <img src="2020/wavy-things.png" alt="" />
+              <img src="2020/wavy-things.png" alt="Wavy Things" title="Wavy Things" />
             </a>
-            <h4><a href="2020/wavy-things.html"> Wavy Things </a></h4>
           </li>
-          <li>
-            <h4><a href="https://github.com/edx/paragon">
-              Paragon Design System
-            </a></h4>
-          </li>
-        </ul>
-        <h2>2019</h2>
-        <ul>
-          <li>
-            <div>
-              <h4>
-                <a
-                  href="https://www.youtube.com/watch?v=dIzvuCwx6hg&list=PL87xhvJSz2W4loIXUtRqv8VBZ0HZKMU59&index=9"
-                >
-                  Open edX Conference 2019 "State of Open edX Frontend" David
-                  Joy March 27th, 2019
-                </a>
-              </h4>
-              <p>
-                My colleague, David Joy, describes the work we're doing on the
-                frontend architecture team at
-                <a href="https://www.edx.org/">edx.org</a>
-              </p>
-            </div>
-          </li>
-        </ul>
-        <h2>2018</h2>
-        <ul>
-          <li>
-            <a href="https://edx.org"><img style="max-width: 5rem; object-fit: contain;" src="./2018/edx-logo.svg" /></a>
-            <p>Joined edX. An online education company founded by MIT and Harvard.</p>
-          </li>
-          <li>
-            <h4>
-              <a
-                href="https://variety.com/2018/tv/news/amazon-netflix-gain-ground-japan-streaming-1202729953/"
-              >
-                Amazon, Netflix Gain Ground in Japanese Streaming Market
-              </a>
-            </h4>
-          </li>
-        </ul>
-        <h2>2017</h2>
-        <ul>
-          <li>
-            <div>
-              <h4>
-                <a
-                  href="https://variety.com/2021/digital/news/netflix-play-something-shuffle-launches-worldwide-1234962150/"
-                >
-                  Netflix Launches &lsquo;Play Something&rsquo; Shuffle Feature
-                  Worldwide
-                </a>
-              </h4>
-              <p>
-                This is the 2021 culmination of work I collaborated on starting
-                in 2017. The end result is quite different, and I don't know
-                what kind of work happened beyond 2018 on the effort.
-              </p>
-            </div>
-          </li>
-        </ul>
-        <h2>2015</h2>
-        <ul>
-          <li>
-            <div>
-              <h4>
-                <a
-                  href="https://twitter.com/figmadesign/status/1446158026386280449"
-                  >Moria Data Mining Tool</a
-                >
-              </h4>
-              <p>
-                I created an internal tool to help designers work with live
-                artwork at Netflix. <a href="http://jcehle.com/">J.C. Ehle</a>,
-                his team, and the design system team at Netflix pushed this tool
-                further than I had ever dreamed of as they demoed at the Figma
-                Schema conference in 2021.
-              </p>
-            </div>
-          </li>
-          <li>
-            <h4>
-              <a
-                href="https://techcrunch.com/2015/05/20/netflix-to-roll-out-a-new-more-immersive-web-interface-starting-in-june/"
-              >
-                Netflix To Roll Out A New, More Immersive Web Interface Starting
-                In June
-              </a>
-            </h4>
-            <p></p>
-          </li>
-        </ul>
-        <h2>2014</h2>
-        <ul>
-          <li>
-            <h4>
-              <a href="https://www.bbc.com/news/technology-27496055">
-                Netflix to expand to Germany, France and Switzerland
-              </a>
-            </h4>
-          </li>
-        </ul>
-        <h2>2013</h2>
-        <ul>
-          <li>
-            <a href="https://netflix.com"><img style="aspect-ratio: 2/1; max-width: 8em;" src="./2013/netflix-logo.svg" /></a>
-            <p>Joined Netflix.</p>
-          </li>
-        </ul>
-        <h2>2012</h2>
-        <ul>
           <li>
             <a href="2012/gaussian-circles.html">
-              <img src="2012/gaussian-circles.png" alt="" />
-            </a>
-            <a href="2012/gaussian-circles.html">
-              <h4>Gaussian Circles</h4>
+              <img src="2012/gaussian-circles.png" alt="Gaussian Circles" title="Gaussian Circles" />
             </a>
           </li>
           <li>
             <a href="2012/budding-circles.html">
-              <img src="2012/budding-circles.png" alt="" />
-            </a>
-            <a href="2012/budding-circles.html">
-              <h4>Budding Circles</h4>
+              <img src="2012/budding-circles.png" alt="Budding Circles" title="Budding Circles" />
             </a>
           </li>
           <li>
             <a href="2012/spines.html">
-              <img src="2012/spines.png" alt="" />
-            </a>
-            <a href="2012/spines.html">
-              <h4>Back Into Processing</h4>
+              <img src="2012/spines.png" alt="Back Into Processing" title="Back Into Processing" />
             </a>
           </li>
           <li>
             <a href="2012/1d-animated-terrain.html">
-              <img src="2012/1d-animated-terrain.png" alt="" />
-            </a>
-            <a href="2012/1d-animated-terrain.html">
-              <h4>1D Animated Terrain Generator</h4>
+              <img src="2012/1d-animated-terrain.png" alt="1D Animated Terrain Generator" title="1D Animated Terrain Generator" />
             </a>
           </li>
           <li>
             <a href="2012/1d-terrain.html">
-              <img src="2012/1d-terrain.png" alt="" />
-            </a>
-            <a href="2012/1d-terrain.html">
-              <h4>1D Terrain Generator</h4>
+              <img src="2012/1d-terrain.png" alt="1D Terrain Generator" title="1D Terrain Generator" />
             </a>
           </li>
           <li>
             <a href="2012/fake-3d-gravity.html">
-              <img src="2012/fake-3d-gravity.png" alt="" />
-            </a>
-            <a href="2012/fake-3d-gravity.html">
-              <h4>Fake 3D Gravity</h4>
+              <img src="2012/fake-3d-gravity.png" alt="Fake 3D Gravity" title="Fake 3D Gravity" />
             </a>
           </li>
           <li>
             <a href="2012/planets-and-fun.html">
-              <img src="2012/planets-and-fun.png" alt="" />
-            </a>
-            <a href="2012/planets-and-fun.html">
-              <h4>Planets & Fun</h4>
+              <img src="2012/planets-and-fun.png" alt="Planets & Fun" title="Planets & Fun" />
             </a>
           </li>
           <li>
             <a href="2012/planets.html">
-              <img src="2012/planets.png" alt="" />
-            </a>
-            <a href="2012/planets.html">
-              <h4>Planets</h4>
+              <img src="2012/planets.png" alt="Planets" title="Planets" />
             </a>
           </li>
           <li>
             <a href="2012/gravity-play-2.html">
-              <img src="2012/gravity-play-2.png" alt="" />
-            </a>
-            <a href="2012/gravity-play-2.html">
-              <h4>Gravity Play 2</h4>
+              <img src="2012/gravity-play-2.png" alt="Gravity Play 2" title="Gravity Play 2" />
             </a>
           </li>
           <li>
             <a href="2012/gravity-play.html">
-              <img src="2012/gravity-play.png" alt="" />
-            </a>
-            <a href="2012/gravity-play.html">
-              <h4>Gravity Play</h4>
+              <img src="2012/gravity-play.png" alt="Gravity Play" title="Gravity Play" />
             </a>
           </li>
+          <li>
+            <a href="https://adaminjapan.tumblr.com/">
+              <img src="2010/tarumi-present.jpeg" alt="Tumblr blog from my time in Japan" title="Tumblr blog from my time in Japan"/>
+            </a>
+          </li>
+          <li></li>
+          <li></li>
+          <li></li>
         </ul>
-        <h2>2009 - 2011</h2>
-        <p>
-          <a href="https://adaminjapan.tumblr.com/">
-            <img src="2010/tarumi-present.jpeg" />
-          </a>
-          See my tumblr blog from my time in Tokushima, Japan:
-          <a href="https://adaminjapan.tumblr.com/">
-            https://adaminjapan.tumblr.com/
-          </a>. Feel free to ask me for the password.
-        </p>
       </main>
     </site-shell>
   </body>
